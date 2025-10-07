@@ -8,7 +8,6 @@ import type {
   FormSubmission,
   FormValidationResponse,
   FormSubmissionResponse,
-  EnumValue,
 } from './types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:8000';
@@ -35,23 +34,17 @@ export async function getSchema(schemaId: string): Promise<FormSchema> {
 }
 
 // ============================================================================
-// Data APIs
+// Dynamic Data Loading
 // ============================================================================
-
-export async function getCountries(): Promise<EnumValue[]> {
-  const response = await api.get('/api/countries');
-  return response.data;
-}
-
-export async function getCities(country: string): Promise<EnumValue[]> {
-  const response = await api.get('/api/cities', { params: { country } });
-  return response.data;
-}
-
-export async function getSubcategories(parent: string): Promise<EnumValue[]> {
-  const response = await api.get('/api/subcategories', { params: { parent } });
-  return response.data;
-}
+// Note: Data for dependent fields is loaded dynamically using the 'source' URL
+// from the schema. No hardcoded data endpoints are needed - the backend controls
+// all data sources through the schema definition.
+//
+// Example: If the schema specifies:
+//   content.source = "/api/cities?country={country}"
+// The DependentSelectField will automatically fetch from that URL.
+// This keeps the frontend truly dynamic - no frontend updates needed when
+// adding new data endpoints!
 
 // ============================================================================
 // Validation APIs
