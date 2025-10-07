@@ -17,8 +17,12 @@ export const NumberField: React.FC<BaseFieldProps> = ({
         {param.description}
         {param.required && <span className="required">*</span>}
       </label>
-      <div className="number-input-wrapper">
-        {content.prefix && <span className="input-prefix">{content.prefix}</span>}
+      <div className="relative flex items-center">
+        {content.prefix && (
+          <span className="absolute left-3 text-sm text-gray-500 pointer-events-none">
+            {content.prefix}
+          </span>
+        )}
         <input
           type="number"
           id={param.name}
@@ -31,10 +35,14 @@ export const NumberField: React.FC<BaseFieldProps> = ({
           min={content.min}
           max={content.max}
           step={content.step}
-          className={`form-input ${error ? 'error' : ''} ${content.prefix ? 'with-prefix' : ''} ${content.suffix ? 'with-suffix' : ''}`}
+          className={`form-input ${error ? 'error' : ''} ${content.prefix ? 'pl-8' : ''} ${content.suffix ? 'pr-12' : ''}`}
           required={param.required}
         />
-        {content.suffix && <span className="input-suffix">{content.suffix}</span>}
+        {content.suffix && (
+          <span className="absolute right-3 text-sm text-gray-500 pointer-events-none">
+            {content.suffix}
+          </span>
+        )}
       </div>
       {error && <span className="form-error">{error}</span>}
     </div>

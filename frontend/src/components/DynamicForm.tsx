@@ -98,8 +98,8 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({
 
       default:
         return (
-          <div key={param.name} className="field-wrapper">
-            <p className="field-error">
+          <div key={param.name} className="form-field">
+            <p className="form-error">
               Unsupported field type: {param.type}
             </p>
           </div>

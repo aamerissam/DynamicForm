@@ -28,7 +28,7 @@ export const RangeField: React.FC<BaseFieldProps> = ({
         {param.description}
         {param.required && <span className="required">*</span>}
       </label>
-      <div className="range-wrapper">
+      <div className="space-y-2">
         <input
           type="range"
           id={param.name}
@@ -40,14 +40,24 @@ export const RangeField: React.FC<BaseFieldProps> = ({
           min={content.min}
           max={content.max}
           step={content.step}
-          className={`range-input ${error ? 'error' : ''}`}
+          className={`w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer
+                     focus:outline-none focus:ring-2 focus:ring-primary-500
+                     disabled:opacity-50 disabled:cursor-not-allowed
+                     ${error ? 'ring-2 ring-danger-500' : ''}`}
+          style={{
+            background: `linear-gradient(to right, 
+              rgb(37 99 235) 0%, 
+              rgb(37 99 235) ${((currentValue - content.min) / (content.max - content.min)) * 100}%, 
+              rgb(229 231 235) ${((currentValue - content.min) / (content.max - content.min)) * 100}%, 
+              rgb(229 231 235) 100%)`
+          }}
           required={param.required}
         />
         {content.showLabels !== false && (
-          <div className="range-labels">
-            <span className="range-min">{formatValue(content.min)}</span>
-            <span className="range-current">{formatValue(currentValue)}</span>
-            <span className="range-max">{formatValue(content.max)}</span>
+          <div className="flex justify-between items-center text-xs text-gray-600">
+            <span className="font-medium">{formatValue(content.min)}</span>
+            <span className="font-semibold text-sm text-primary-600">{formatValue(currentValue)}</span>
+            <span className="font-medium">{formatValue(content.max)}</span>
           </div>
         )}
       </div>

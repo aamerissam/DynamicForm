@@ -31,11 +31,11 @@ export const MultiSelectField: React.FC<BaseFieldProps> = ({
         {param.description}
         {param.required && <span className="required">*</span>}
       </div>
-      <div className="multi-select-wrapper">
+      <div className="space-y-3">
         {content.values.map((option) => (
           <label
             key={option.value}
-            className="multi-select-option"
+            className="flex items-center space-x-3 cursor-pointer"
             title={option.tooltip}
           >
             <input
@@ -46,14 +46,14 @@ export const MultiSelectField: React.FC<BaseFieldProps> = ({
               onChange={() => handleToggle(option.value)}
               onBlur={onBlur}
               disabled={disabled || option.disabled}
-              className="checkbox-input"
+              className="form-checkbox w-5 h-5"
             />
-            <span className="checkbox-text">{option.label}</span>
+            <span className="text-sm text-gray-700 select-none">{option.label}</span>
           </label>
         ))}
       </div>
       {content.maxSelections && (
-        <div className="field-hint">
+        <div className="form-hint">
           Selected: {selectedValues.length} / {content.maxSelections}
         </div>
       )}

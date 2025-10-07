@@ -181,54 +181,13 @@
     @apply bg-info-100 text-info-800;
   }
   
-  /* Range slider */
-  input[type="range"] {
-    @apply w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer;
-  }
-  
+  /* Range slider customization (native HTML range input) */
   input[type="range"]::-webkit-slider-thumb {
-    @apply appearance-none w-4 h-4 bg-primary-600 rounded-full cursor-pointer;
+    @apply appearance-none w-4 h-4 bg-primary-600 rounded-full cursor-pointer shadow-sm;
   }
   
   input[type="range"]::-moz-range-thumb {
-    @apply w-4 h-4 bg-primary-600 rounded-full cursor-pointer border-0;
-  }
-  
-  /* Switch/Toggle */
-  .toggle-switch {
-    @apply relative inline-block w-11 h-6;
-  }
-  
-  .toggle-switch input {
-    @apply opacity-0 w-0 h-0;
-  }
-  
-  .toggle-slider {
-    @apply absolute cursor-pointer inset-0 bg-gray-300 rounded-full
-           transition duration-200 ease-in-out;
-  }
-  
-  .toggle-slider:before {
-    @apply absolute content-[''] h-5 w-5 left-0.5 bottom-0.5 bg-white rounded-full
-           transition duration-200 ease-in-out;
-  }
-  
-  input:checked + .toggle-slider {
-    @apply bg-primary-600;
-  }
-  
-  input:checked + .toggle-slider:before {
-    @apply translate-x-5;
-  }
-  
-  /* Multi-select chips */
-  .multi-select-chip {
-    @apply inline-flex items-center gap-1 px-2.5 py-1 bg-primary-100 text-primary-800
-           text-xs font-medium rounded-md;
-  }
-  
-  .multi-select-chip button {
-    @apply hover:text-primary-900 focus:outline-none;
+    @apply w-4 h-4 bg-primary-600 rounded-full cursor-pointer border-0 shadow-sm;
   }
   
   /* Form category sections */
