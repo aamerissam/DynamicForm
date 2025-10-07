@@ -2,6 +2,7 @@
 Example form schemas demonstrating various features.
 """
 
+from datetime import datetime, timedelta
 from models import (
     FormSchema, ParamCategory, Param,
     EnumContent, DependentEnumContent, StringContent,
@@ -193,7 +194,8 @@ USER_REGISTRATION_SCHEMA = FormSchema(
                     content=DateContent(
                         type="date",
                         format="YYYY-MM-DD",
-                        max="2010-01-01"  # Must be 13+ years old
+                        min="1900-01-01",  # Reasonable minimum
+                        max=(datetime.now() - timedelta(days=13*365)).strftime("%Y-%m-%d")  # Must be 13+ years old
                     )
                 ),
             ]
