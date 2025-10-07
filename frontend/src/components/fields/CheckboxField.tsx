@@ -13,8 +13,8 @@ export const CheckboxField: React.FC<BaseFieldProps> = ({
   const checked = value ?? content.defaultValue ?? false;
 
   return (
-    <div className="form-field checkbox-wrapper">
-      <label htmlFor={param.name} className="checkbox-label">
+    <div className="form-field">
+      <label htmlFor={param.name} className="flex items-center space-x-3 cursor-pointer">
         <input
           type="checkbox"
           id={param.name}
@@ -23,9 +23,9 @@ export const CheckboxField: React.FC<BaseFieldProps> = ({
           onChange={(e) => onChange(e.target.checked)}
           onBlur={onBlur}
           disabled={disabled}
-          className="checkbox-input"
+          className="form-checkbox w-5 h-5"
         />
-        <span className="checkbox-text">
+        <span className="text-sm text-gray-700 select-none">
           {param.description}
           {param.required && <span className="required">*</span>}
         </span>

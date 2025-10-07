@@ -18,9 +18,13 @@ export const RadioField: React.FC<BaseFieldProps> = ({
         {param.description}
         {param.required && <span className="required">*</span>}
       </div>
-      <div className={`radio-group ${layout}`}>
+      <div className={`space-y-3 ${layout === 'horizontal' ? 'sm:flex sm:space-y-0 sm:space-x-6' : ''}`}>
         {content.values.map((option) => (
-          <label key={option.value} className="radio-label" title={option.tooltip}>
+          <label 
+            key={option.value} 
+            className="flex items-center space-x-3 cursor-pointer"
+            title={option.tooltip}
+          >
             <input
               type="radio"
               name={param.name}
@@ -29,10 +33,10 @@ export const RadioField: React.FC<BaseFieldProps> = ({
               onChange={(e) => onChange(e.target.value)}
               onBlur={onBlur}
               disabled={disabled || option.disabled}
-              className="radio-input"
+              className="form-radio w-5 h-5"
               required={param.required}
             />
-            <span className="radio-text">{option.label}</span>
+            <span className="text-sm text-gray-700 select-none">{option.label}</span>
           </label>
         ))}
       </div>
