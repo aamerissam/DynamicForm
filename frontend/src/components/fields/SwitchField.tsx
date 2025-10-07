@@ -13,7 +13,7 @@ export const SwitchField: React.FC<BaseFieldProps> = ({
   const checked = value ?? content.defaultValue ?? false;
 
   return (
-    <div className="field-wrapper switch-wrapper">
+    <div className="form-field switch-wrapper">
       <label htmlFor={param.name} className="switch-label">
         <span className="switch-text">
           {param.description}
@@ -33,7 +33,7 @@ export const SwitchField: React.FC<BaseFieldProps> = ({
           <span className="switch-slider"></span>
         </div>
       </label>
-      {error && <span className="field-error">{error}</span>}
+      {error && <span className="form-error">{error}</span>}
     </div>
   );
 };

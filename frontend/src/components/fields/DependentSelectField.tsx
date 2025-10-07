@@ -54,8 +54,8 @@ export const DependentSelectField: React.FC<BaseFieldProps> = ({
   const isDisabled = disabled || !parentValue || isLoading;
 
   return (
-    <div className="field-wrapper">
-      <label htmlFor={param.name} className="field-label">
+    <div className="form-field">
+      <label htmlFor={param.name} className="form-label">
         {param.description}
         {param.required && <span className="required">*</span>}
       </label>
@@ -66,7 +66,7 @@ export const DependentSelectField: React.FC<BaseFieldProps> = ({
         onChange={(e) => onChange(e.target.value)}
         onBlur={onBlur}
         disabled={isDisabled}
-        className={`field-input ${error ? 'error' : ''}`}
+        className={`form-select ${error ? 'error' : ''}`}
         required={param.required}
       >
         <option value="">
@@ -87,7 +87,7 @@ export const DependentSelectField: React.FC<BaseFieldProps> = ({
           </option>
         ))}
       </select>
-      {error && <span className="field-error">{error}</span>}
+      {error && <span className="form-error">{error}</span>}
     </div>
   );
 };

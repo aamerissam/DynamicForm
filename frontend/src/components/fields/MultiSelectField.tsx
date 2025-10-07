@@ -26,8 +26,8 @@ export const MultiSelectField: React.FC<BaseFieldProps> = ({
   };
 
   return (
-    <div className="field-wrapper">
-      <div className="field-label">
+    <div className="form-field">
+      <div className="form-label">
         {param.description}
         {param.required && <span className="required">*</span>}
       </div>
@@ -57,7 +57,7 @@ export const MultiSelectField: React.FC<BaseFieldProps> = ({
           Selected: {selectedValues.length} / {content.maxSelections}
         </div>
       )}
-      {error && <span className="field-error">{error}</span>}
+      {error && <span className="form-error">{error}</span>}
     </div>
   );
 };

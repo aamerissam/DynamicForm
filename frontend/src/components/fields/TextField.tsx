@@ -14,8 +14,8 @@ export const TextField: React.FC<BaseFieldProps> = ({
 
   if (content.multiline || param.type === 'textarea') {
     return (
-      <div className="field-wrapper">
-        <label htmlFor={param.name} className="field-label">
+      <div className="form-field">
+        <label htmlFor={param.name} className="form-label">
           {param.description}
           {param.required && <span className="required">*</span>}
         </label>
@@ -30,17 +30,17 @@ export const TextField: React.FC<BaseFieldProps> = ({
           rows={content.rows || 3}
           minLength={content.minLength}
           maxLength={content.maxLength}
-          className={`field-input ${error ? 'error' : ''}`}
+          className={`form-textarea ${error ? 'error' : ''}`}
           required={param.required}
         />
-        {error && <span className="field-error">{error}</span>}
+        {error && <span className="form-error">{error}</span>}
       </div>
     );
   }
 
   return (
-    <div className="field-wrapper">
-      <label htmlFor={param.name} className="field-label">
+    <div className="form-field">
+      <label htmlFor={param.name} className="form-label">
         {param.description}
         {param.required && <span className="required">*</span>}
       </label>
@@ -56,10 +56,10 @@ export const TextField: React.FC<BaseFieldProps> = ({
         minLength={content.minLength}
         maxLength={content.maxLength}
         pattern={content.pattern}
-        className={`field-input ${error ? 'error' : ''}`}
+        className={`form-input ${error ? 'error' : ''}`}
         required={param.required}
       />
-      {error && <span className="field-error">{error}</span>}
+      {error && <span className="form-error">{error}</span>}
     </div>
   );
 };

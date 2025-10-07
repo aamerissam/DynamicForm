@@ -19,8 +19,8 @@ export const DateField: React.FC<BaseFieldProps> = ({
   }
 
   return (
-    <div className="field-wrapper">
-      <label htmlFor={param.name} className="field-label">
+    <div className="form-field">
+      <label htmlFor={param.name} className="form-label">
         {param.description}
         {param.required && <span className="required">*</span>}
       </label>
@@ -34,10 +34,10 @@ export const DateField: React.FC<BaseFieldProps> = ({
         disabled={disabled}
         min={content.min}
         max={content.max}
-        className={`field-input ${error ? 'error' : ''}`}
+        className={`form-input ${error ? 'error' : ''}`}
         required={param.required}
       />
-      {error && <span className="field-error">{error}</span>}
+      {error && <span className="form-error">{error}</span>}
     </div>
   );
 };

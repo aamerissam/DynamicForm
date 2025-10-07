@@ -13,8 +13,8 @@ export const RadioField: React.FC<BaseFieldProps> = ({
   const layout = content.layout || 'vertical';
 
   return (
-    <div className="field-wrapper">
-      <div className="field-label">
+    <div className="form-field">
+      <div className="form-label">
         {param.description}
         {param.required && <span className="required">*</span>}
       </div>
@@ -36,7 +36,7 @@ export const RadioField: React.FC<BaseFieldProps> = ({
           </label>
         ))}
       </div>
-      {error && <span className="field-error">{error}</span>}
+      {error && <span className="form-error">{error}</span>}
     </div>
   );
 };

@@ -12,8 +12,8 @@ export const SelectField: React.FC<BaseFieldProps> = ({
   const content = param.content as EnumContent;
 
   return (
-    <div className="field-wrapper">
-      <label htmlFor={param.name} className="field-label">
+    <div className="form-field">
+      <label htmlFor={param.name} className="form-label">
         {param.description}
         {param.required && <span className="required">*</span>}
       </label>
@@ -24,7 +24,7 @@ export const SelectField: React.FC<BaseFieldProps> = ({
         onChange={(e) => onChange(e.target.value)}
         onBlur={onBlur}
         disabled={disabled}
-        className={`field-input ${error ? 'error' : ''}`}
+        className={`form-select ${error ? 'error' : ''}`}
         required={param.required}
       >
         <option value="">-- Select {param.description} --</option>
@@ -39,7 +39,7 @@ export const SelectField: React.FC<BaseFieldProps> = ({
           </option>
         ))}
       </select>
-      {error && <span className="field-error">{error}</span>}
+      {error && <span className="form-error">{error}</span>}
     </div>
   );
 };

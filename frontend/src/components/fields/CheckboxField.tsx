@@ -13,7 +13,7 @@ export const CheckboxField: React.FC<BaseFieldProps> = ({
   const checked = value ?? content.defaultValue ?? false;
 
   return (
-    <div className="field-wrapper checkbox-wrapper">
+    <div className="form-field checkbox-wrapper">
       <label htmlFor={param.name} className="checkbox-label">
         <input
           type="checkbox"
@@ -30,7 +30,7 @@ export const CheckboxField: React.FC<BaseFieldProps> = ({
           {param.required && <span className="required">*</span>}
         </span>
       </label>
-      {error && <span className="field-error">{error}</span>}
+      {error && <span className="form-error">{error}</span>}
     </div>
   );
 };
